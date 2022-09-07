@@ -1,0 +1,54 @@
+.loader {  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0px;
+  height: 100%;
+  position: fixed;
+  transition: opacity 0.5s ease;
+  background: rgb(240, 240, 240);
+  z-index: 4;
+}
+
+.precircle {
+  margin-top: -105px;
+  margin-left: -5px;
+  display: flex;
+  align-items: center;
+  border-top: 10px solid rgb(255, 0, 0);
+  border-bottom: 10px solid rgb(255, 0, 0);
+  border-radius: 100%;
+  width: 115px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes opacit {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.disappear {
+  animation: wipe 1s forwards;
+}
+@keyframes wipe {
+  100% {
+    opacity: 0.2;
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 768px) {
+  .loader {
+    width: 100%;
+  }
+}

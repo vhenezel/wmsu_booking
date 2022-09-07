@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/img/wmsulogo.png') }}">
+   <title>Queuing-System</title>
+   <!-- Google Font: Source Sans Pro -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='/fontawesome/css/all.min.css') }}">
+   <!-- Theme style -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='/css/adminlte.min.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='/preloader/loader.css') }}">
+</head>
+<body class="hold-transition login-page">
+   <!--preloader-->
+   <div class="loader" style="height: 105vh;">
+      <div class="preloadermain">
+          <img src="{{ url_for('static', filename='/img/wmsulogo.png') }}" width="110" height="95">
+          <div class="precircle">
+          </div>
+      </div>
+  </div>
+   <div class="login-box">
+      <!-- /.login-logo -->
+      <div class="card card-outline card-danger">
+         <div class="card-header text-center">
+            <a href="/" class="brand-link">
+            <img src="{{ url_for('static', filename='/img/wmsulogo.png') }}" alt="DSMS Logo" width="200">
+            </a>
+         </div>
+         <div class="card-body">
+            <form action="/login" method="POST">
+               <div class="input-group mb-3">
+                  <input type="text" name="email" class="form-control" placeholder="*Email" required>
+                  <div class="input-group-append">
+                     <span class="input-group-text" style="width: 3rem;">
+                        <i class="fas fa-user"></i>
+                     </span>
+                  </div>
+               </div>
+               <div class="input-group mb-3" id="show_hide_password">
+                  <input type="password" name="password" class="form-control" placeholder="*Password" id="password" required>
+                  <div class="input-group-append">
+                     <span class="input-group-text" onclick="password_show_hides1();" style="width: 3rem;">
+                        <i class="fas fa-eye" id="show_eye"></i>
+                        <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                    </span>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-6 offset-3">
+                     <button type="submit" class="btn btn-block btn-bg" style="background-color: rgb(17, 0, 250);color: #fff">Login</button>
+                     <hr class="solid">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-6 offset-3">
+                     <div class="container pt-1">
+                     <a href="/register" class="btn btn-block btn-bg" style="background-color: rgb(106, 187, 90);color: #fff">Create Account</a>
+                  </div>
+               </div>
+               </div>
+            </form>
+         </div>
+         <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+   </div>
+   <!-- End of Login -->
+   <!-- Script -->
+   <script src="{{ url_for('static', filename='/jquery/showpassword_hover.js') }}"></script>
+   <script src="{{ url_for('static', filename='/preloader/loader.js') }}"></script>
+</body>
+</html>

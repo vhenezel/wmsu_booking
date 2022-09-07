@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../../static/img/wmsulogo.png">
+    <title>Queuing-System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- OFFLINE BOOTSTRAP -->
+    <link rel="stylesheet" href="../../../static/tables/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../../static/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="../../../static/bootstrap/bootstrap-4.6.1-dist/css/bootstrap.min.css'" />
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="../../../static/css/admin-dash.css">
+    <link rel="stylesheet" href="../../../static/preloader/loader.css">
+</head>
+<style>
+    .modal-backdrop {
+        width: 100%;
+    }
+</style>
+<body id="body-pd">
+    <!--preloader-->
+    <div class="loader">
+        <div class="preloadermain">
+            <div class="precircle"></div>
+            <div class="preloader01"></div>
+            <div class="preloader01"></div>
+            <div class="preloader01"></div>
+            <div class="preloader01"></div>
+            <div class="preloader01"></div>
+            <div class="preloader01"></div>
+            <div class="preloader01"></div>
+        </div>
+    </div>
+
+    <header class="header" id="header">
+        <div class="header_toggle"> 
+            <i class='bx bx-menu' id="header-toggle"></i> 
+        </div>
+        <div class="header_img"> 
+            <a href="../admin/admin-profile.html" style="cursor: pointer; margin-top: -8px;">
+                <img src="../../../static/img/avatar.png" class="img-circle" alt="User Image" width="40">
+            </a>
+        </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> 
+                <a href="#" class="nav_logo"> 
+                <i class='nav_logo-icon'><img src="../../../static/img/wmsulogo.png" width="40"></i> 
+                <span class="nav_logo-name">Wmsu Booking</span>
+                </a>
+                <div class="nav_list"> 
+                    <a href="../admin/admin-dashboards.html" class="nav_link" title="Dashboard"> 
+                        <img src="../../../static/img/dashboard.png" width="25">
+                        <span class="nav_name">Dashboard</span> 
+                    </a> 
+                    <a href="../admin/admin-customer.html" class="nav_link" title="Customers"> 
+                        <img src="../../../static/img/customer.png" width="25">
+                        <span class="nav_name">Customers</span> 
+                    </a> 
+                    <a href="../admin/admin-teller.html" class="nav_link" title="Teller"> 
+                        <img src="../../../static/img/user.png" width="25">
+                        <span class="nav_name">Teller</span> 
+                    </a> 
+                    <a href="../admin/admin-counter.html" class="nav_link" title="Window"> 
+                        <img src="../../../static/img/counter.png" width="30">
+                        <span class="nav_name">Window</span> 
+                    </a> 
+                    <a href="#" class="nav_link active" title="Que List"> 
+                        <img src="../../../static/img/que.png" width="30">
+                        <span class="nav_name">Que List</span> 
+                    </a>
+                    <a href="../admin/admin-montly-report.html" class="nav_link" title="Monthly Report"> 
+                        <img src="../../../static/img/report.png" width="30">
+                        <span class="nav_name">Monthly Reports</span> 
+                    </a>
+                </div>
+            </div> 
+            <a href="#" class="nav_link" data-toggle="modal" data-target="#sign_out" title="Sign-Out"> 
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav_name">SignOut</span> 
+            </a>
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100">
+        <div class="content-wrapper mt-5 mb-3">
+            <div class="content-header">
+                <div class="container-fluid">
+
+                    <div class="row mt-5 mb-2">
+                        <div class="col-sm-6 mt-2">
+                           <h1 class="m-0"><img src="../../../static/img/que.png" width="40"> Que List</h1>
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                           <ol class="breadcrumb float-sm-right">
+                              <li class="breadcrumb-item"><a href="#">Home</a></li>
+                           </ol>
+                        </div>
+                        <div>
+                            <a class="btn btn-sm elevation-4" href="#" data-toggle="modal" data-target="#add" style="margin-top: 20px;margin-left: 10px;background-color: rgb(48,133,142)"><i class="fa fa-plus-circle"></i><span class="text-white"> Add New</span></a>
+                        </div>
+                    </div>
+
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="card card-info elevation-2">
+                                <br>
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <div class="table-wrapper">
+                                            <table id="example1" class="table">
+                                                <thead class="btn-cancel">
+                                                    <tr>
+                                                        <th class="text-center" hidden>id</th>
+                                                        <th class="text-center">Counter Number</th>
+                                                        <th class="text-center">Customer Appointment Number</th>
+                                                        <th class="text-center">Remarks</th>
+                                                        <th class="text-center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">#1</td>
+                                                        <td class="text-center">J12314</td>
+                                                        <td class="text-center">To be serve</td>
+                                                        <td class="text-center">
+                                                            <a class="btn btn-sm btn-success mt-1" href="#" data-toggle="modal" data-target="#edit">
+                                                                <i class="fa fa-edit"></i> update
+                                                            </a>
+                                                            <a class="btn btn-sm btn-danger mt-1" href="#" data-toggle="modal" data-target="#delete">
+                                                                <i class="fa fa-trash-alt"></i> delete
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">#2</td>
+                                                        <td class="text-center">Ju312314</td>
+                                                        <td class="text-center">To be serve</td>
+                                                        <td class="text-center">
+                                                            <a class="btn btn-sm btn-success mt-1" href="#" data-toggle="modal" data-target="#edit"><i
+                                                                class="fa fa-edit"></i> update</a>
+                                                            <a class="btn btn-sm btn-danger mt-1" href="#" data-toggle="modal" data-target="#delete"><i
+                                                                class="fa fa-trash-alt"></i> delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">#3</td>
+                                                        <td class="text-center">312414</td>
+                                                        <td class="text-center">To be serve</td>
+                                                        <td class="text-center">
+                                                            <a class="btn btn-sm btn-success mt-1" href="#" data-toggle="modal" data-target="#edit"><i
+                                                                class="fa fa-edit"></i> update</a>
+                                                            <a class="btn btn-sm btn-danger mt-1" href="#" data-toggle="modal" data-target="#delete"><i
+                                                                class="fa fa-trash-alt"></i> delete</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Add Modal -->
+                    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="width: 100%;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add Que Information</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <form action="" method="POST">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <h5><img src="../../../static/img/que.png" width="40"> Que Information</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                   `<div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="float-left">Counter Number</label>
+                                                            <select class="form-control">
+                                                                <option>Counter 1</option>
+                                                                <option>Counter 2</option>
+                                                                <option>Counter 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                   <div class="col-md-12">
+                                                      <div class="form-group">
+                                                         <label class="float-left">Customer Name</label>
+                                                         <input type="text" class="form-control" placeholder="Customer Name">
+                                                      </div>
+                                                   </div>
+                                                   <div class="col-md-12">
+                                                      <div class="form-group">
+                                                      <label class="float-left">Category</label>
+                                                      <select class="form-control">
+                                                         <option>Category 1</option>
+                                                         <option>Category 2</option>
+                                                         <option>Category 3</option>
+                                                      </select>
+                                                   </div>
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="button" class="btn btn-success">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Add Modal -->
+
+                    <!-- Edit Modal -->
+                    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="width: 100%;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Update Que Information</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <form action="" method="POST">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <h5><img src="../../../static/img/que.png" width="40"> Que Information</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                   `<div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="float-left">Counter Number</label>
+                                                            <select class="form-control">
+                                                                <option>Counter 1</option>
+                                                                <option>Counter 2</option>
+                                                                <option>Counter 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                   <div class="col-md-12">
+                                                      <div class="form-group">
+                                                         <label class="float-left">Customer Name</label>
+                                                         <input type="text" class="form-control" placeholder="Customer Name">
+                                                      </div>
+                                                   </div>
+                                                   <div class="col-md-12">
+                                                      <div class="form-group">
+                                                      <label class="float-left">Category</label>
+                                                      <select class="form-control">
+                                                         <option>Category 1</option>
+                                                         <option>Category 2</option>
+                                                         <option>Category 3</option>
+                                                      </select>
+                                                   </div>
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="button" class="btn btn-success">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Edit Modal -->
+
+                    <!-- Delete Modal -->
+                    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="width: 100%;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Counter Number</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <form action="" method="POST">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <img src="../../../static/img/sent.png" class="mb-1" alt="" width="50" height="46">
+                                                <h4>Are you sure want to delete this Counter Number?</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="button" class="btn btn-danger">Yes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Delete Modal -->
+
+                    <!-- Logut Modal -->
+                    <div class="modal fade" id="sign_out" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="width: 100%;">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Sign-Out</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <form action="" method="POST">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <h4>Are you sure want to Sign-Out?</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="button" class="btn btn-danger">Yes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Logout Modal -->
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Container Main end-->
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <!-- DataTables  & Plugins -->
+    <script src="../../../static/tables/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../../static/tables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../../static/tables/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../../static/tables/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <!-- Script -->
+    <script>
+      $(function () {
+         $("#example1").DataTable();
+      });
+    </script>
+    <script src="../../../static/jquery/admin-dash.js"></script>
+    <script src="../../../static/preloader/loader.js"></script>
+</body>
+</html>

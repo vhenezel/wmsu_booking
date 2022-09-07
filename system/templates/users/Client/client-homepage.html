@@ -1,0 +1,94 @@
+{% extends "/users/Client/client-base.html" %}
+{% block content %}
+    <!--preloader-->
+    <div class="loader mt-2">
+        <div class="preloadermain">
+            <div class="precircle ml-5"></div>
+            <div class="preloader01 ml-5"></div>
+            <div class="preloader01 ml-5"></div>
+            <div class="preloader01 ml-5"></div>
+            <div class="preloader01 ml-5"></div>
+        </div>
+    </div>
+
+    <div>
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light">
+            <a class="navbar-brand ml-3" href="#"><img src="{{ url_for('static', filename='/img/wmsulogo.png') }}" style="width: 50px; height: 50px;"></a>
+            <button class="navbar-toggler text-white mr-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse text-white" id="navbarNavDropdown">
+                <ul class="navbar-nav text-white mr-auto ml-3">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white home" href="/client_homepage">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white history" href="../Client/client-transaction-history.html">Transaction History<span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ml-3 mr-3">
+                    <input type="hidden" name="userid">
+                    <a class="nav-link fs-5" href="#" data-bs-toggle="modal" data-bs-target="#sign_out" title="Sign-Out">
+                        <span class="sr-only">(current)</span>
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </form>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col mt-5 mb-3">
+                    <div class="col mt-5 mb-5">
+                        <div class="row mt-5">
+                            <div class="text-center mt-5">
+                                <h1 class="mt-5">
+                                    <p class="text-uppercase" style="cursor: default;">Welcome! Lure, Lexi</p>
+                                </h1>
+                            </div>
+                            <div class="container mt-2 mb-5">
+                                <div class="mid row justify-content-center mt-2 mb-5">
+                                    <div class="row mt-2">
+                                        <a class="btn btn-danger fs-3 mt-2" href="../Client/client-appointment-form.html">Make an Appointment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" id="imageform">
+                    <img src="{{ url_for('static', filename='/img/client-homepage-logo.jpg') }}" class="img-thumbnail border-0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Logut Modal -->
+        <div class="modal fade" id="sign_out" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="width: 100%;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign-Out</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <form action="" method="POST">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <h4>Are you sure want to Sign-Out?</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-danger">Yes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End of Logout Modal -->
+        
+    </div>
+{% endblock %}

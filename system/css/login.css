@@ -1,0 +1,10 @@
+body{
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: sans-serif;
+}
+  
+hr.solid {
+    border-top: 2px solid rgb(200, 192, 192);
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Queuing-System</title>
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="../../../static/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="../../../static/css/adminlte.min.css">
+   <link rel="stylesheet" href="../../../static/css/style.css">
+   <link rel="stylesheet" href="../../../static/tables/datatables-bs4/css/dataTables.bootstrap4.min.css">
+   <link rel="stylesheet" href="Teller.css">
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+      <style type="text/css">
+      table tr td {
+         padding: 0.3rem !important;
+      }
+      table tr td p{
+         margin-top: -0.8rem !important;
+         margin-bottom: -0.8rem !important;
+         font-size: 0.9rem;
+      }
+      td a.btn{
+         font-size: 0.7rem;
+      }
+   </style>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+   <div class="wrapper bg-light">
+      <nav class="main-header navbar navbar-expand navbar-light sticky-top" style="background-color: rgb(190, 39, 39)">
+         <!-- Left navbar links -->
+         <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link" data-bs-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+         </ul>
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="#" role="button">
+                  <img src="../asset/img/avatar.png" class="img-circle" alt="User Image" width="40" style="margin-top: -8px;">
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                  <i class="fas fa-expand-arrows-alt"></i>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-widget="fullscreen" href="../index.html">
+                  <i class="fas fa-sign-out-alt"></i>
+               </a>
+            </li>
+         </ul>
+      </nav>
+      <aside class="main-sidebar sidebar-light-primary" style="background-color: rgb(255, 250, 250);">
+         <!-- Brand Logo -->
+         <a href="index.html" class="brand-link">
+            <center>
+               <img src="../asset/img/faviconwmsu.png" alt="DSMS Logo" width="200" margin="20px">
+            </center>
+         </a>
+         <div class="sidebar">
+            <nav class="mt-2">
+               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                  data-accordion="false">
+                  <li class="nav-item">
+                     <a href="index.html" class="nav-link">
+                        <img src="../asset/img/dashboard.png" width="30">
+                        <p>
+                           Dashboard
+                        </p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="customer.html" class="nav-link">
+                        <img src="../asset/img/customer.png" width="30">
+                        <p>
+                           Customers
+                        </p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#" class="nav-link">
+                        <img src="../asset/img/pending-process.png" width="30">
+                        <p>
+                           Waiting Room
+                        </p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#" class="nav-link">
+                        <img src="../asset/img/history-icon.png" width="30">
+                        <p>
+                           Transaction History
+                        </p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="" class="nav-link">
+                        <img src="../asset/img/Settings.png" width="30">
+                        <p>
+                           Settings
+                        </p>
+                     </a>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </aside>
+      <div class="container">
+         <div class="row justify-content-center mt-3">
+             <div class="col-lg-8 border rounded bg-white mt-2 mb-5">
+                 <form action="" method="POST">
+                     <div class="row text-center border bg-info text-light rounded fs-4 ml-1 mr-1 mt-4 mb-3">
+                     </div>
+                     <div class="row ml-1 mr-1 mb-3">
+                         <div class="col border rounded">
+                             <div class="row ml-1 mr-1 mt-2 mb-3">
+                                 <label for="exampleInputEmail1" class="form-label">Customer Qeue.</label>
+                                 <input type="text" name="student_id" class="form-control" id="exampleInputstudentid" style="height: 30rem;" aria-describedby="emailHelp" disabled>
+                             </div>
+                         </div>
+                         <div class="col-sm-1"></div>
+                         <div class="col-sm-5 border rounded">
+                             <div class="row ml-1 mr-1 mt-2 mb-5">
+                                 <label for="college" class="form-label text-center">Customer Request form</label>
+                                 <input type="text" name="request_form" class="form-control form-control-lg" style="height: 10rem;" id="college" aria-describedby="emailHelp" disabled>
+                             </div>
+                             <div class="row text-center mt-5">
+                                 <div class="mt-2 mb-2">
+                                    <div class="ml-2">
+                                       <h3>Customer appointment #</h3>
+                                    </div>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col text-center ml-3 mr-3 border rounded" style="background-color: #d81d1d;">
+                                     <div class="mt-3 mb-3">
+                                         <h1>12341BT</h1>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="row mt-2 mb-2">
+                                 <div class="col border rounded ml-3 mr-3">
+                                     <div class="row mt-2">
+                                       <div class="ml-2">
+                                          <span>Time and Date:</span>
+                                       </div>
+                                     </div>
+                                     <div class="row mb-2">
+                                       <div class="ml-3">
+                                          <span>March 40, 2040</span><br>
+                                          <span>1:30pm</span>
+                                       </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                    
+                     <!-- Action Buttons -->
+                     <div class="buttons mt-3 mb-3">
+                         <div class="row">
+                           <div class="col mt-2" align="left">
+                              <span>Time allocated: 1:24pm</span>
+                          </div>
+                          <div class="col" align="right">
+                              <button type="button" class="btn btn-secondary">Pause</button>
+                              <button type="submit" class="btn btn-danger">Next</button>
+                          </div>
+                     </div>
+                   </form>
+             </div>
+         </div>
+     </div>
+      
+   <!-- jQuery -->
+   <script src="../../../static/jquery/jquery.min.js"></script>
+   <script src="../../../static/js/bootstrap.bundle.min.js"></script>
+   <script src="../../../static/js/adminlte.js"></script>
+   <!-- DataTables  & Plugins -->
+   <script src="../../../static/tables/datatables/jquery.dataTables.min.js"></script>
+   <script src="../../../static/tables/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+   <script src="../../../static/tables/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+   <script src="../../../static/tables/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+   <script>
+      $(function () {
+         $("#example1").DataTable();
+      });
+   </script>
+</body>
+
+</html>
